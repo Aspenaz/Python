@@ -1,0 +1,4 @@
+La función iter()
+
+La función iter() se suele emplear para mostrar cómo funciona en realidad un bucle implementado con for/in. Antes del inicio del bucle la función iter() retorna el objeto iterable con el método subyacente __iter__(). Una vez iniciado el bucle, el método __next__() permite avanzar, en cada ciclo, al siguiente elemento hasta alcanzar el último. Cuando el puntero se encuentra en el último elemento si se ejecuta nuevamente el método __next__() el programa
+produce la excepción StopIteration.

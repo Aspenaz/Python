@@ -1,0 +1,9 @@
+# python -m pydoc -k geometria
+geometriaplana
+
+# python -m pydoc geometriaplana 
+
+# python -m pydoc -w geometriaplana
+
+# python -m pydoc -p 8080      
+Server ready at http://localhost:8080/
