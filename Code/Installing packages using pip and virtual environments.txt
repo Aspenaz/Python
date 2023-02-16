@@ -1,0 +1,41 @@
+-Instalación sobre Windows, en Linux 'py' se reemplaza por 'python3'-
+
+Installing pip:
+$ py -m pip install --upgrade pip
+$ py -m pip --version
+
+Installing virtualenv:
+$ py -m pip install --user virtualenv
+
+Creating a virtual environment:
+$ py -m venv env
+$ cd env
+
+Activating a virtual environment:
+$ .\env\Scripts\activate   or  C:\env $ .\Scripts\activate
+$ where python
+
+Leaving the virtual environment:
+$ deactivate
+
+Installing packages:
+$ py -m pip install requests
+
+"pip should download requests and all of its dependencies and install them:"
+Collecting requests
+  Using cached requests-2.18.4-py2.py3-none-any.whl
+Collecting chardet<3.1.0,>=3.0.2 (from requests)
+  Using cached chardet-3.0.4-py2.py3-none-any.whl
+Collecting urllib3<1.23,>=1.21.1 (from requests)
+  Using cached urllib3-1.22-py2.py3-none-any.whl
+Collecting certifi>=2017.4.17 (from requests)
+  Using cached certifi-2017.7.27.1-py2.py3-none-any.whl
+Collecting idna<2.7,>=2.5 (from requests)
+  Using cached idna-2.6-py2.py3-none-any.whl
+Installing collected packages: chardet, urllib3, certifi, idna, requests
+Successfully installed certifi-2017.7.27.1 chardet-3.0.4 idna-2.6 requests-2.18.4 urllib3-1.22
+
+
+Installing extras:
+$ py -m pip install requests[security]
+
