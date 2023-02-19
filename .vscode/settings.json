@@ -1,5 +1,8 @@
 {
     "files.autoSave": "onFocusChange",
     "python.linting.enabled": false,
-    "python.formatting.provider": "black"
+    "python.formatting.provider": "black",
+    "githubPullRequests.ignoredPullRequestBranches": [
+        "main"
+    ]
 }
