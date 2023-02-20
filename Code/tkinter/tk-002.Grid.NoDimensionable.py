@@ -21,7 +21,6 @@ class Aplicacion():
     def __init__(self):
         self.raiz = Tk()
         self.raiz.title("Acceso")
-
         self.raiz.resizable(0,0)        
 
         self.marco = ttk.Frame(self.raiz, borderwidth=2, relief="raised", padding=(10,10))

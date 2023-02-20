@@ -89,8 +89,8 @@ print('\n' + '=' * 94 + '\n')
 
 def mineral(simbolo):
     ''' Devuelve número y denominación del mineral '''
-    elementos = {'Au':'1-Oro', 'Hg':'2-Mercurio', 'Pt':'3-Plata'}
-    elemento = elementos[simbolo]
+    mineral = {'Au':'1-Oro', 'Hg':'2-Mercurio', 'Pt':'3-Plata'}
+    elemento = mineral[simbolo]
     print(elemento)
     lista = elemento.split('-')
     return (lista[0], lista[1])
