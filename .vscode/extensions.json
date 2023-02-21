@@ -1,5 +1,10 @@
 {
     "recommendations": [
-        "diogonolasco.pyinit"
+        "diogonolasco.pyinit",
+        "editorconfig.editorconfig",
+        "magicstack.magicpython",
+        "filwaline.vscode-postfix-python",
+        "formulahendry.code-runner",
+        "oderwat.indent-rainbow"
     ]
 }
