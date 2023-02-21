@@ -5,6 +5,10 @@
         "magicstack.magicpython",
         "filwaline.vscode-postfix-python",
         "formulahendry.code-runner",
-        "oderwat.indent-rainbow"
+        "oderwat.indent-rainbow",
+        "dongli.python-preview",
+        "vscode-icons-team.vscode-icons",
+        "christian-kohler.npm-intellisense",
+        "github.copilot"
     ]
 }

@@ -20,6 +20,7 @@ self.raiz.wait_window(self.dialogo) """
 from tkinter import *
 from tkinter import ttk
 
+
 class Aplicacion():
     ''' Clase Aplicacion '''
 
@@ -83,7 +84,7 @@ class Aplicacion():
 
         self.print()
 
-        # self.raiz.wait_window(self.dialogo)
+        self.raiz.wait_window(self.dialogo)
 
   
     def print(self):
