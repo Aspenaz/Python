@@ -45,8 +45,7 @@ class Aplicacion():
 
         separador_1 = ttk.Separator(self.raiz, orient=HORIZONTAL)   
         boton_abrir  = ttk.Button(self.raiz, text='Abrir', command=self.abrir )     
-        boton_cerrar = ttk.Button(self.raiz, text='Cerrar', command=self.raiz.destroy)    
-             
+        boton_cerrar = ttk.Button(self.raiz, text='Cerrar', command=self.raiz.destroy)              
 
         separador_1.grid(row=1, column=0, columnspan=2, padx=5, pady=2, sticky=(E, W))
         boton_abrir.grid(row=2, column=0, padx=20, pady=6) 
