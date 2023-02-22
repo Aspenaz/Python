@@ -33,7 +33,7 @@ class Aplicacion():
         self.raiz.resizable(0, 0) # type: ignore
 
         scrollbar = Scrollbar(self.raiz)  
-        scrollbar.grid(row=0, column=2, padx=.1, sticky=(N, S)) # type: ignore #
+        scrollbar.grid(row=0, column=2, padx=.1, sticky=(N, S)) # type: ignore 
 
         self.text_info = Text (self.raiz,  width=40, height=10, bg='beige' , yscrollcommand=scrollbar.set) 
         self.text_info.grid(row=0, column=0, columnspan=2, padx=2, pady=2, sticky=(E, W))  # type: ignore
