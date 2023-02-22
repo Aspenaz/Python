@@ -6,5 +6,7 @@
         "Python"
     ],
     "python.testing.unittestEnabled": false,
-    "python.testing.pytestEnabled": true
+    "python.testing.pytestEnabled": true,
+    "python.analysis.typeCheckingMode": "basic",
+    "python.defaultInterpreterPath": "C:\\Program Files\\Python39\\python.exe"
 }

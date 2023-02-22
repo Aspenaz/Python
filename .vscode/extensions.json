@@ -9,6 +9,7 @@
         "dongli.python-preview",
         "vscode-icons-team.vscode-icons",
         "christian-kohler.npm-intellisense",
-        "github.copilot"
+        "github.copilot",
+        "neuron.neuron-ipe"
     ]
 }
