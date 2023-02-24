@@ -28,7 +28,7 @@ class Aplicacion():
     def __init__(self):
         ''' Construye ventana de aplicación '''
         self.raiz = Tk()
-        self.raiz.geometry('347x235+500+50') 
+        self.raiz.geometry('347x216+500+50') 
         self.raiz.title("Ventana de aplicación")
         self.raiz.resizable(0, 0) # type: ignore
 
@@ -36,7 +36,7 @@ class Aplicacion():
         scrollbar.grid(row=0, column=2, padx=.1, sticky=(N, S)) # type: ignore 
 
         self.text_info = Text (self.raiz,  width=40, height=10, bg='beige' , yscrollcommand=scrollbar.set) 
-        self.text_info.grid(row=0, column=0, columnspan=2, padx=2, pady=2, sticky=(E))  # type: ignore
+        self.text_info.grid(row=0, column=0, columnspan=2, padx=2, pady=2, sticky=(E, W))  # type: ignore
         
         scrollbar.config(command=self.text_info.yview)  
         
@@ -49,37 +49,36 @@ class Aplicacion():
         boton_cerrar = ttk.Button(self.raiz, text='Cerrar', command=self.raiz.destroy) 
         boton_cerrar.grid(row=2, column=1, padx=20, pady=6)   
             
+
         boton_abrir.focus_set()
 
-        self.raiz.mainloop()        
+        self.raiz.mainloop()
 
 
     def abrir(self):
         ''' Construye una ventana de diálogo '''
-        
+        self.dialogo = Toplevel()
+
         Aplicacion.ventana+=1
         Aplicacion.posx_y += 50  
-        
+
         self.tamypos = '250x100+' + str(Aplicacion.posx_y) + '+' + str(Aplicacion.posx_y)
         
-        self.dialogo = Toplevel(self.raiz)  # Toplevel(self.raiz)           
-        self.ident = self.dialogo.winfo_id()        
-        titulo = str(Aplicacion.ventana) + ": " + str(self.ident)  
+        self.ident = self.dialogo.winfo_id()  
+        
+        titulo = str(Aplicacion.ventana) + ": " + str(self.ident)
 
         self.dialogo.geometry(self.tamypos)
         self.dialogo.resizable(0, 0)  # type: ignore
-        self.dialogo.title(titulo)  
+        self.dialogo.title(titulo)
 
         boton_cerrar_2 = ttk.Button(self.dialogo, text='Cerrar', command=self.dialogo.destroy)
         boton_cerrar_2.pack(side=BOTTOM, padx=20, pady=20)
         boton_cerrar_2.focus_set()
-        
-        texto = Label(self.dialogo, text='Ventana ' + titulo)
-        texto.pack(side=BOTTOM)
 
         self.ver_info()
 
-        self.raiz.wait_window(self.dialogo)        
+        self.raiz.wait_window(self.dialogo)
     
     
     def ver_info(self):
@@ -98,7 +97,8 @@ class Aplicacion():
         # text_in += 'Altura ventana: '   + str(self._height_dialogo) + '\n' 
         text_in += 'Nombre: '           + self._name_dialogo        + '\n'      #todo 
 
-        self.text_info.insert('1.0', text_in)            
+        self.text_info.insert('1.0', text_in) 
+           
         
 
     def print(self):
@@ -135,24 +135,6 @@ class Aplicacion():
         print('toplevel:', self._toplevel_dialogo)
         print('screenvisual:', self._screenvisual_dialogo)
         print()
-        
-        
-    def menu(self):
-        barra_menu = Menu(self.raiz)
-        
-        menu_archivo    = Menu(barra_menu, tearoff=0)
-        menu_editar     = Menu(barra_menu, tearoff=0)
-        menu_ayuda      = Menu(barra_menu, tearoff=0)
-        
-        barra_menu.add_cascade(label='Archivo', menu=menu_archivo)
-        barra_menu.add_cascade(label='Editar', menu=menu_editar)
-        barra_menu.add_cascade(label='Ayuda', menu=menu_ayuda)
-        
-        menu_archivo.add_command(label='Nuevo')
-        menu_archivo.add_command(label='Guardar')
-        menu_archivo.add_cascade(label='Imprimir')
-        menu_archivo.add_separator()
-        menu_archivo.add_cascade(label='Salir', command=self.raiz.quit)
 
 
 def main():

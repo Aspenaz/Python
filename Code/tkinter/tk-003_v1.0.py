@@ -14,7 +14,7 @@ self.raiz.mainloop()
 wait_window() atiende eventos de la ventana de diálogo mientras espera a ser cerrada:
 self.raiz.wait_window(self.dialogo) """
 
-#!/usr/bin/env python
+
 # -*- coding: utf-8 -*-
 
 from tkinter import *
@@ -31,15 +31,15 @@ class Aplicacion():
         self.raiz = Tk()
         self.raiz.geometry('347x216+500+50')  
         self.raiz.title("Ventana de aplicación")
-        self.raiz.resizable(0,0)   
+        self.raiz.resizable(0,0)  # type: ignore    
 
 
         scrollbar = Scrollbar(self.raiz)  
-        scrollbar.grid(row=0, column=2, padx=.1, sticky=(N, S)) # 
+        scrollbar.grid(row=0, column=2, padx=.1, sticky=(N, S))  # type: ignore 
 
 
         self.text_info = Text (self.raiz,  width=40, height=10, bg='beige' , yscrollcommand=scrollbar.set) 
-        self.text_info.grid(row=0, column=0, columnspan=2, padx=2, pady=2, sticky=(E, W)) 
+        self.text_info.grid(row=0, column=0, columnspan=2, padx=2, pady=2, sticky=(E, W))  # type: ignore  
 
         scrollbar.config(command=self.text_info.yview) 
 
@@ -47,7 +47,7 @@ class Aplicacion():
         boton_abrir  = ttk.Button(self.raiz, text='Abrir', command=self.abrir )     
         boton_cerrar = ttk.Button(self.raiz, text='Cerrar', command=self.raiz.destroy)              
 
-        separador_1.grid(row=1, column=0, columnspan=2, padx=5, pady=2, sticky=(E, W))
+        separador_1.grid(row=1, column=0, columnspan=2, padx=5, pady=2, sticky=(E, W))  # type: ignore 
         boton_abrir.grid(row=2, column=0, padx=20, pady=6) 
         boton_cerrar.grid(row=2, column=1, padx=20, pady=6) 
         
@@ -85,7 +85,7 @@ class Aplicacion():
         titulo = str(Aplicacion.ventana) + ": " + str(self.ident)
 
         self.dialogo.geometry(self.tamypos)
-        self.dialogo.resizable(0,0)
+        self.dialogo.resizable(0, 0)  # type: ignore 
         self.dialogo.title(titulo)
 
         print()
