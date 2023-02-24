@@ -28,7 +28,7 @@ class Aplicacion():
     def __init__(self):
         ''' Construye ventana de aplicación '''
         self.raiz = Tk()
-        self.raiz.geometry('347x235+500+50') 
+        self.raiz.geometry('347x225+500+50') 
         self.raiz.title("Ventana de aplicación")
         self.raiz.resizable(0, 0) # type: ignore
 
@@ -43,13 +43,15 @@ class Aplicacion():
         separador_1 = ttk.Separator(self.raiz, orient=HORIZONTAL)  
         separador_1.grid(row=1, column=0, columnspan=2, padx=5, pady=2, sticky=(E, W))  # type: ignore 
         
-        boton_abrir  = ttk.Button(self.raiz, text='Abrir', command=self.abrir)  
-        boton_abrir.grid(row=2, column=0, padx=20, pady=6)  
+        boton_abrir  = Button(self.raiz, text='Abrir', relief=GROOVE, padx=15, pady=2, command=self.abrir)  
+        boton_abrir.grid(row=2, column=0, padx=20, pady=10)  
            
-        boton_cerrar = ttk.Button(self.raiz, text='Cerrar', command=self.raiz.destroy) 
-        boton_cerrar.grid(row=2, column=1, padx=20, pady=6)   
+        boton_cerrar = Button(self.raiz, text='Cerrar', relief=GROOVE, padx=15, pady=2, command=self.raiz.destroy)   
+        boton_cerrar.grid(row=2, column=1, padx=20, pady=10)   
             
         boton_abrir.focus_set()
+        
+        self.menu()
 
         self.raiz.mainloop()        
 
@@ -139,20 +141,39 @@ class Aplicacion():
         
     def menu(self):
         barra_menu = Menu(self.raiz)
+        self.raiz.config(menu=barra_menu)
         
-        menu_archivo    = Menu(barra_menu, tearoff=0)
-        menu_editar     = Menu(barra_menu, tearoff=0)
-        menu_ayuda      = Menu(barra_menu, tearoff=0)
+        menu_archivo = Menu(barra_menu, tearoff=0)
+        menu_editar = Menu(barra_menu, tearoff=0)
+        menu_ayuda = Menu(barra_menu, tearoff=0)
         
         barra_menu.add_cascade(label='Archivo', menu=menu_archivo)
         barra_menu.add_cascade(label='Editar', menu=menu_editar)
         barra_menu.add_cascade(label='Ayuda', menu=menu_ayuda)
         
         menu_archivo.add_command(label='Nuevo')
+        menu_archivo.add_command(label='Abrir')
         menu_archivo.add_command(label='Guardar')
         menu_archivo.add_cascade(label='Imprimir')
         menu_archivo.add_separator()
-        menu_archivo.add_cascade(label='Salir', command=self.raiz.quit)
+        sub_menu_archivo = Menu(menu_archivo, tearoff=0)
+        menu_archivo.add_cascade(label='Historial', menu=sub_menu_archivo)
+        menu_archivo.add_separator()
+        menu_archivo.add_command(label='Configurar')
+        menu_archivo.add_cascade(label='Salir', command=self.raiz.destroy)  # self.raiz.quit
+        
+        menu_editar.add_command(label='Copiar')
+        menu_editar.add_command(label='Cortar')
+        menu_editar.add_command(label='Borrar')
+        menu_editar.add_command(label='Seleccionar')
+        
+        menu_ayuda.add_command(label='Help Index')
+        menu_ayuda.add_command(label='Generar Log')
+        menu_ayuda.add_command(label='About...')
+        
+        
+        
+        
 
 
 def main():
